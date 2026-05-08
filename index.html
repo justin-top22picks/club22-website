@@ -3,23 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Club 22 - Claim Your Course</title>
-  <meta name="description" content="Club 22 is a golf territory game. Play rounds, claim courses, defend your turf, and compete with friends across every course in America.">
+  <title>Club 22 - Play Golf. Claim Courses.</title>
+  <meta name="description" content="Play Golf. Claim Courses. Club 22 turns every round into territory. Claim courses, defend your turf, and compete with friends across America.">
+  <meta property="og:title" content="Club 22 - Play Golf. Claim Courses.">
+  <meta property="og:description" content="Play Golf. Claim Courses. Every round is territory. Defend your turf and compete with friends across every course in America.">
+  <meta property="og:url" content="https://club22.app">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #121829;
       --bg-card: #1a2236;
+      --bg-card-hover: #1f2840;
       --text: #e8eaf0;
       --text-muted: #8b92a8;
       --accent: #4ade80;
       --accent-dim: rgba(74, 222, 128, 0.15);
+      --accent-glow: rgba(74, 222, 128, 0.35);
       --border: #2a3352;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -27,37 +36,53 @@
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     .container {
-      max-width: 720px;
+      max-width: 880px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
     /* Header */
     header {
-      padding: 24px 0;
+      padding: 20px 0;
       border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(18, 24, 41, 0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      z-index: 10;
     }
     header .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .logo {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 20px;
       font-weight: 700;
       color: var(--text);
       letter-spacing: -0.5px;
     }
-    .logo span { color: var(--accent); }
+    .brand-mark {
+      color: var(--accent);
+      width: 36px;
+      height: 36px;
+      display: inline-block;
+    }
+    .brand-mark svg { width: 100%; height: 100%; display: block; }
     nav a {
       color: var(--text-muted);
-      margin-left: 24px;
+      margin-left: 22px;
       font-size: 14px;
       font-weight: 500;
     }
@@ -65,26 +90,49 @@
 
     /* Hero */
     .hero {
-      padding: 80px 0 60px;
+      padding: 88px 0 64px;
       text-align: center;
+      position: relative;
     }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 540px;
+      height: 540px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+      filter: blur(80px);
+      opacity: 0.5;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .hero-mark {
+      color: var(--text);
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 28px;
+      display: block;
+    }
+    .hero-mark svg { width: 100%; height: 100%; display: block; }
     .hero h1 {
-      font-size: 48px;
-      font-weight: 700;
-      letter-spacing: -1.5px;
-      line-height: 1.1;
+      font-size: 56px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.05;
       margin-bottom: 20px;
     }
     .hero h1 span { color: var(--accent); }
     .hero p {
-      font-size: 18px;
+      font-size: 19px;
       color: var(--text-muted);
-      max-width: 520px;
-      margin: 0 auto 40px;
+      max-width: 560px;
+      margin: 0 auto 32px;
     }
     .badge-row {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -100,54 +148,293 @@
       font-weight: 500;
     }
 
+    /* Download buttons */
+    .download-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .download-caption {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.3px;
+    }
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #000;
+      border: 1px solid #2a2a2a;
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: 500;
+      min-width: 200px;
+      justify-content: center;
+      opacity: 0.55;
+      cursor: not-allowed;
+      user-select: none;
+      pointer-events: none;
+    }
+    .store-btn svg {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+    .store-btn-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      text-align: left;
+    }
+    .store-btn-text small {
+      font-size: 10px;
+      font-weight: 400;
+      color: #b0b0b0;
+      letter-spacing: 0.3px;
+    }
+    .store-btn-text strong {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+    }
+
+    /* Section heading */
+    .section-head {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+    .section-head .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-head h2 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .section-head p {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    /* How It Works */
+    .how {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 20px;
+      position: relative;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .step:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent-dim);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+    .step h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .step p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Modes */
+    .modes {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+    .mode-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .mode {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .mode:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+    .mode-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .mode h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.4px;
+    }
+    .mode p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
     /* Features */
     .features {
-      padding: 60px 0;
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+    .feature-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 18px;
     }
     .feature {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 28px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .feature:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
     }
     .feature-icon {
       font-size: 28px;
       margin-bottom: 12px;
     }
     .feature h3 {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 600;
       margin-bottom: 8px;
     }
     .feature p {
       font-size: 14px;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.55;
     }
+
+    /* Download CTA (final) */
+    .download-cta {
+      text-align: center;
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+      position: relative;
+    }
+    .download-cta::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 480px;
+      height: 360px;
+      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 65%);
+      filter: blur(70px);
+      opacity: 0.4;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .download-cta h2 {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      margin-bottom: 14px;
+    }
+    .download-cta h2 span { color: var(--accent); }
+    .download-cta p {
+      color: var(--text-muted);
+      font-size: 17px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .download-cta .download-row { margin-top: 36px; }
 
     /* CTA */
     .cta {
       text-align: center;
-      padding: 60px 0;
+      padding: 80px 0;
       border-top: 1px solid var(--border);
     }
     .cta h2 {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 700;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      letter-spacing: -0.8px;
     }
     .cta p {
       color: var(--text-muted);
-      font-size: 16px;
+      font-size: 17px;
+      max-width: 480px;
+      margin: 0 auto 28px;
     }
+    .cta-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 500;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .cta-email:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      text-decoration: none;
+    }
+    .cta-email .at { color: var(--accent); }
 
     /* Footer */
     footer {
-      padding: 32px 0;
+      padding: 36px 0;
       border-top: 1px solid var(--border);
       text-align: center;
     }
@@ -158,25 +445,45 @@
     footer a {
       color: var(--text-muted);
       margin: 0 12px;
+      font-size: 14px;
     }
     footer a:hover { color: var(--text); }
     .footer-links { margin-bottom: 12px; }
 
+    @media (max-width: 720px) {
+      .steps { grid-template-columns: 1fr 1fr; }
+      .mode-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 600px) {
-      .hero h1 { font-size: 32px; }
+      .hero { padding: 64px 0 48px; }
+      .hero-mark { width: 72px; height: 72px; }
+      .hero h1 { font-size: 36px; letter-spacing: -1.2px; }
       .hero p { font-size: 16px; }
-      .features { grid-template-columns: 1fr; }
-      nav a { margin-left: 16px; font-size: 13px; }
+      .section-head h2 { font-size: 26px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .download-cta h2 { font-size: 28px; }
+      .store-btn { min-width: 100%; }
+      nav a { margin-left: 14px; font-size: 13px; }
+      .brand { font-size: 18px; }
+      .brand-mark { width: 30px; height: 30px; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <div class="logo">Club <span>22</span></div>
+      <div class="brand">
+        <span>Club</span>
+        <span class="brand-mark" aria-label="22">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 375" role="img" aria-label="22"><g fill="currentColor"><g transform="translate(12.240268, 270.117057)"><path d="M139.547-65.672H41.047V-32.828H172.391V0H8.203V-65.672C8.203-71.691 9.672-77.195 12.609-82.188 15.555-87.188 19.523-91.156 24.516-94.094 29.516-97.031 35.023-98.5 41.047-98.5H139.547V-131.344H8.203V-164.172H139.547C145.566-164.172 151.07-162.695 156.063-159.75 161.063-156.813 165.031-152.848 167.969-147.859 170.914-142.867 172.391-137.363 172.391-131.344V-98.5C172.391-92.477 170.914-86.973 167.969-81.984 165.031-76.992 161.063-73.023 156.063-70.078 151.07-67.141 145.566-65.672 139.547-65.672Z"/></g><g transform="translate(182.157647, 270.117057)"><path d="M139.547-65.672H41.047V-32.828H172.391V0H8.203V-65.672C8.203-71.691 9.672-77.195 12.609-82.188 15.555-87.188 19.523-91.156 24.516-94.094 29.516-97.031 35.023-98.5 41.047-98.5H139.547V-131.344H8.203V-164.172H139.547C145.566-164.172 151.07-162.695 156.063-159.75 161.063-156.813 165.031-152.848 167.969-147.859 170.914-142.867 172.391-137.363 172.391-131.344V-98.5C172.391-92.477 170.914-86.973 167.969-81.984 165.031-76.992 161.063-73.023 156.063-70.078 151.07-67.141 145.566-65.672 139.547-65.672Z"/></g></g></svg>
+        </span>
+      </div>
       <nav>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
+        <a href="#how">How It Works</a>
+        <a href="#modes">Modes</a>
+        <a href="#download">Download</a>
       </nav>
     </div>
   </header>
@@ -184,45 +491,171 @@
   <main>
     <section class="hero">
       <div class="container">
-        <h1>Claim Your <span>Course</span></h1>
-        <p>A golf territory game. Play rounds, claim courses, defend your turf, and compete with friends across every course in America.</p>
+        <span class="hero-mark" aria-hidden="true">
+          <img src="/logo.svg" alt="Club 22" style="width:100%;height:100%;filter:brightness(0) invert(1);" />
+        </span>
+        <h1>Play Golf.<br>Claim <span>Courses</span>.</h1>
+        <p>Every round becomes territory. Defend your turf, build streaks, and compete with friends across every course in America.</p>
         <div class="badge-row">
           <span class="badge">12,400+ Courses</span>
           <span class="badge">All 50 States</span>
-          <span class="badge">Coming Soon</span>
+          <span class="badge">iOS &amp; Android</span>
+        </div>
+        <div class="download-row">
+          <span class="store-btn" aria-disabled="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+            </svg>
+            <span class="store-btn-text">
+              <small>Download on the</small>
+              <strong>App Store</strong>
+            </span>
+          </span>
+          <span class="store-btn" aria-disabled="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#34a853" d="M3.6 20.6c.3.3.7.4 1.2.3l11.7-6.7-3.2-3.2L3.6 20.6z"/>
+              <path fill="#fbbc04" d="M20.4 11.2l-3.5-2L13.3 12l3.6 3.6 3.5-2c1-.6 1-2.1 0-2.4z"/>
+              <path fill="#4285f4" d="M3.6 3.4c-.1.2-.1.4-.1.7v15.8c0 .2 0 .5.1.7l9.7-9.6L3.6 3.4z"/>
+              <path fill="#ea4335" d="M13.3 12l3.2-3.2L4.8 2.1c-.5-.3-1-.2-1.2.1L13.3 12z"/>
+            </svg>
+            <span class="store-btn-text">
+              <small>GET IT ON</small>
+              <strong>Google Play</strong>
+            </span>
+          </span>
+        </div>
+        <span class="download-caption">Launching this week on iOS &amp; Android</span>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">How It Works</span>
+          <h2>Four steps to ruling your home course</h2>
+          <p>Real rounds, real courses, real rivalries. No simulation, just the game you already play.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Play a round</h3>
+            <p>Open the app at any of 12,400+ courses. We track your round automatically.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Claim the course</h3>
+            <p>Finish your round and the course becomes your territory on the map.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Defend your turf</h3>
+            <p>When others play your course, they challenge your claim. Play again to hold it.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <h3>Climb the board</h3>
+            <p>Earn badges, build streaks, and compete with friends across the whole country.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="modes" id="modes">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Three Ways to Play</span>
+          <h2>One map, three games</h2>
+          <p>Switch modes any time. Each one tells a different story of where you've played.</p>
+        </div>
+        <div class="mode-grid">
+          <div class="mode">
+            <span class="mode-pill">Territory</span>
+            <h3>Own the course</h3>
+            <p>See who owns each course on the map. Play a round to claim unclaimed courses or challenge someone else's claim.</p>
+          </div>
+          <div class="mode">
+            <span class="mode-pill">Collector</span>
+            <h3>Fill the map</h3>
+            <p>Track every course you've ever played. Light up the country one round at a time and build your collection across all 50 states.</p>
+          </div>
+          <div class="mode">
+            <span class="mode-pill">Leaders</span>
+            <h3>Climb the ranks</h3>
+            <p>See who's on top at each course. The more rounds you play, the higher you climb on the leaderboard.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="features">
-      <div class="container" style="display: contents;">
-        <div class="feature">
-          <div class="feature-icon">&#127969;</div>
-          <h3>Claim Territories</h3>
-          <p>Play a round at any course to claim it as your territory. The better you play, the stronger your claim.</p>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Features</span>
+          <h2>Built for golfers who keep score</h2>
         </div>
-        <div class="feature">
-          <div class="feature-icon">&#9876;&#65039;</div>
-          <h3>Defend Your Turf</h3>
-          <p>Other players can challenge your territories. Come back and play again to strengthen your hold.</p>
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="feature-icon">&#127919;</div>
+            <h3>Score-based claims</h3>
+            <p>The better you play, the stronger your claim. Bogey golfers and scratch players each have a path to the top.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">&#9876;&#65039;</div>
+            <h3>Live rivalries</h3>
+            <p>See challenges to your courses in real time. Get notified when a friend tries to take your home track.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">&#127942;</div>
+            <h3>Badges &amp; milestones</h3>
+            <p>Unlock achievements for streaks, low rounds, road trips, and rare feats. Build a profile that reflects your game.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">&#129309;</div>
+            <h3>Friends &amp; verification</h3>
+            <p>Connect with your group, verify each other's rounds, and keep the leaderboard honest.</p>
+          </div>
         </div>
-        <div class="feature">
-          <div class="feature-icon">&#127942;</div>
-          <h3>Earn Badges</h3>
-          <p>Unlock achievements for milestones, streaks, and epic plays. Build your golf identity.</p>
+      </div>
+    </section>
+
+    <section class="download-cta" id="download">
+      <div class="container">
+        <h2>Your home course is waiting. <span>Claim it.</span></h2>
+        <p>Free to download. Free to play. Available this week on iOS and Android.</p>
+        <div class="download-row">
+          <span class="store-btn" aria-disabled="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+            </svg>
+            <span class="store-btn-text">
+              <small>Download on the</small>
+              <strong>App Store</strong>
+            </span>
+          </span>
+          <span class="store-btn" aria-disabled="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#34a853" d="M3.6 20.6c.3.3.7.4 1.2.3l11.7-6.7-3.2-3.2L3.6 20.6z"/>
+              <path fill="#fbbc04" d="M20.4 11.2l-3.5-2L13.3 12l3.6 3.6 3.5-2c1-.6 1-2.1 0-2.4z"/>
+              <path fill="#4285f4" d="M3.6 3.4c-.1.2-.1.4-.1.7v15.8c0 .2 0 .5.1.7l9.7-9.6L3.6 3.4z"/>
+              <path fill="#ea4335" d="M13.3 12l3.2-3.2L4.8 2.1c-.5-.3-1-.2-1.2.1L13.3 12z"/>
+            </svg>
+            <span class="store-btn-text">
+              <small>GET IT ON</small>
+              <strong>Google Play</strong>
+            </span>
+          </span>
         </div>
-        <div class="feature">
-          <div class="feature-icon">&#129309;</div>
-          <h3>Play With Friends</h3>
-          <p>Connect with friends, verify each other's rounds, and compete on the leaderboard.</p>
-        </div>
+        <span class="download-caption">Store links go live at launch &mdash; check back soon</span>
       </div>
     </section>
 
     <section class="cta">
       <div class="container">
-        <h2>Beta launching soon</h2>
-        <p>Club 22 is currently in beta testing. Stay tuned for public availability on iOS and Android.</p>
+        <h2>Questions? We&rsquo;re here.</h2>
+        <p>Reach out anytime &mdash; we read every message.</p>
+        <a class="cta-email" href="mailto:support@club22.app">
+          <span>support<span class="at">@</span>club22.app</span>
+        </a>
       </div>
     </section>
   </main>
@@ -232,7 +665,7 @@
       <div class="footer-links">
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
-        <a href="mailto:support@club22.app">Contact</a>
+        <a href="mailto:support@club22.app">support@club22.app</a>
       </div>
       <p>&copy; 2026 Top 22 Picks, LLC. All rights reserved.</p>
     </div>
