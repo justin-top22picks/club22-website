@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Your Account - Club 22</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #121829;
+      --bg-card: #1a2236;
+      --text: #e8eaf0;
+      --text-muted: #8b92a8;
+      --accent: #4ade80;
+      --border: #2a3352;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-size: 20px; font-weight: 700; color: var(--text); letter-spacing: -0.5px; }
+    .logo span { color: var(--accent); }
+    nav a { color: var(--text-muted); margin-left: 24px; font-size: 14px; font-weight: 500; }
+    nav a:hover { color: var(--text); text-decoration: none; }
+    .content { padding: 48px 0 80px; }
+    .content h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+    .updated {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+    .content h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+    .content h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+    .content p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+    .content ul, .content ol {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      padding-left: 24px;
+      font-size: 15px;
+    }
+    .content li { margin-bottom: 6px; }
+    .content strong { color: var(--text); font-weight: 600; }
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: var(--text-muted); }
+    footer a { color: var(--text-muted); margin: 0 12px; }
+    footer a:hover { color: var(--text); }
+    .footer-links { margin-bottom: 12px; }
+    @media (max-width: 600px) {
+      .content h1 { font-size: 28px; }
+      .content h2 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Club <span>22</span></a>
+      <nav>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="container">
+      <h1>Delete Your Club 22 Account</h1>
+      <p class="updated">Last Updated: May 14, 2026</p>
+
+      <p>You can permanently delete your Club 22 account and associated data at any time.</p>
+
+      <h2>In-App (Preferred)</h2>
+      <ol>
+        <li>Open the Club 22 app and sign in</li>
+        <li>Tap <strong>Profile</strong> at the bottom</li>
+        <li>Tap the <strong>Settings</strong> gear in the top right</li>
+        <li>Scroll to <strong>Danger Zone</strong></li>
+        <li>Tap <strong>Delete Account</strong></li>
+        <li>Confirm twice to complete deletion</li>
+      </ol>
+      <p>Your account is deleted immediately. No further action needed.</p>
+
+      <h2>By Email (Alternative)</h2>
+      <p>If you can't access the app or are no longer signed in, email us at <a href="mailto:privacy@club22.app">privacy@club22.app</a> with:</p>
+      <ul>
+        <li>The email address associated with your Club 22 account</li>
+        <li>A request to delete your account</li>
+      </ul>
+      <p>We'll process the request within 7 business days and email you confirmation.</p>
+
+      <h2>What Gets Deleted</h2>
+      <ul>
+        <li>Your profile, username, photo, and territory color</li>
+        <li>All your claimed territories (returned to "unclaimed" so other players can claim them)</li>
+        <li>Your play history, rounds, and badges earned</li>
+        <li>Your friends list and any pending friend requests</li>
+        <li>Photos you've uploaded</li>
+        <li>All notification tokens and preferences</li>
+        <li>Your Firebase Auth account (sign-in credentials)</li>
+      </ul>
+
+      <h2>What's Retained</h2>
+      <ul>
+        <li><strong>Purchase records</strong> (for tax, audit, and chargeback purposes — anonymized after deletion)</li>
+        <li>Aggregate / anonymized usage data already de-linked from your account</li>
+      </ul>
+
+      <h2>Privacy Policy</h2>
+      <p>For more details on data handling, see our <a href="/privacy">Privacy Policy</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/delete-account">Delete Account</a>
+        <a href="mailto:support@club22.app">Contact</a>
+      </div>
+      <p>&copy; 2026 Top 22 Picks, LLC. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
