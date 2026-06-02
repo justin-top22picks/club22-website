@@ -362,6 +362,58 @@
       line-height: 1.55;
     }
 
+    /* Top 22 Picks origin */
+    .origin {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+    .origin-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .origin-panel .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .origin-panel h2 {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.6px;
+      margin-bottom: 18px;
+    }
+    .origin-panel p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.65;
+      max-width: 580px;
+      margin: 0 auto 16px;
+    }
+    .origin-panel p strong { color: var(--text); font-weight: 600; }
+    .origin-panel p:last-of-type { margin-bottom: 28px; }
+    .origin-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #0b1220;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .origin-link:hover { opacity: 0.9; transform: translateY(-1px); text-decoration: none; }
+
     /* Download CTA (final) */
     .download-cta {
       text-align: center;
@@ -465,6 +517,8 @@
       .hero h1 { font-size: 36px; letter-spacing: -1.2px; }
       .hero p { font-size: 16px; }
       .section-head h2 { font-size: 26px; }
+      .origin-panel { padding: 32px 22px; }
+      .origin-panel h2 { font-size: 24px; }
       .feature-grid { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr; }
       .download-cta h2 { font-size: 28px; }
@@ -487,6 +541,7 @@
       <nav>
         <a href="#how">How It Works</a>
         <a href="#modes">Modes</a>
+        <a href="#top22">Top 22 Picks</a>
         <a href="#download">Download</a>
       </nav>
     </div>
@@ -587,6 +642,18 @@
             <h3>Climb the ranks</h3>
             <p>See who's on top at each course. The more rounds you play, the higher you climb on the leaderboard.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="origin" id="top22">
+      <div class="container">
+        <div class="origin-panel">
+          <span class="eyebrow">Why We Built It</span>
+          <h2>You ranked them. Now go claim them.</h2>
+          <p>Club&nbsp;22 is built by the team behind <strong>Top&nbsp;22&nbsp;Picks</strong> &mdash; the players&rsquo; leaderboard for America&rsquo;s best public golf courses, where golfers, not magazines, vote the rankings into place.</p>
+          <p>Club&nbsp;22 is where that turns into a game you play on the course. Same courses, same passion &mdash; but now every round is a move on the map. And your Top&nbsp;22 votes still count: they <strong>boost your claim strength</strong> when you go to take a course.</p>
+          <a class="origin-link" href="https://top22picks.com" target="_blank" rel="noopener">Explore Top&nbsp;22&nbsp;Picks &rarr;</a>
         </div>
       </div>
     </section>
